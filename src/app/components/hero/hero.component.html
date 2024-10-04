@@ -1,0 +1,19 @@
+<div class="main-container slides mt-12 rounded-lg">
+  <img [src]="slides[currentSlide].url" alt="Hero"
+    class="slide rounded-3xl"
+    [ngStyle]="{
+      opacity: hidden ? 0 : 1,
+      transition: 'opacity ' + animationSpeed + 'ms ease-in-out'
+    }"
+  />
+
+  <div id="indicators">
+    <div
+      *ngFor="let slide of slides"
+      (click)="jumpToSlide(slide.id)"
+      class="indicator"
+      [ngClass]="{ active: slide.id == currentSlide }"
+    ></div>
+  </div>
+
+</div>

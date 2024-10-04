@@ -1,0 +1,77 @@
+<div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
+  <mat-card
+    *ngFor="let event of events"
+    class="relative rounded-xl"
+    appearance="outlined"
+  >
+    <img
+      mat-card-image
+      [src]="event.image"
+      alt="Photo of a Shiba Inu"
+      class="h-40"
+    />
+    <mat-card-content>
+      <div class="flex flex-col gap-4 mb-10 mt-3">
+        <p class="text-base font-medium">
+          {{ event.title }}
+        </p>
+        <div class="flex items-center gap-2">
+          <i class="fas fa-calendar-alt"></i>
+          <p class="text-sm font-semibold text-gray-500">{{ event.date }}</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fas fa-map-marker-alt"></i>
+          <p class="text-sm font-semibold text-gray-500">
+            {{ event.location }}
+          </p>
+        </div>
+        <div
+          [ngClass]="event.tag.bgColor + ' ' + event.tag.borderColor"
+          class="w-fit px-2 py-1 rounded-lg text-xs font-medium"
+        >
+          <span [ngClass]="event.tag.textColor">{{ event.tag.name }}</span>
+        </div>
+      </div>
+
+      <div
+        class="absolute bottom-3 right-3 left-3 w-auto flex justify-between text-sm rounded-lg px-2 py-1 bg-[#FFF9F9]"
+      >
+        <p class="font-bold">From {{ event.price }}</p>
+        <p class="text-red-500 hover:text-red-700 font-bold cursor-pointer">
+          BUY NOW
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="flex justify-end items-center gap-2 mt-10">
+  <button class="bg-white border-2 border-gray-500 text-gray-500 px-2">
+    <i class="fas fa-chevron-left"></i>
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="bg-white border-2 border-gray-500 text-gray-500 px-2">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button
+    *ngFor="let i of [1, 2, 3, 4, 5, 6]"
+    class="font-semibold px-2"
+    [ngClass]="
+      i === 1 ? 'bg-red-500 border-2 border-red-500 text-white px-2' : 'bg-white border-2 border-gray-500 text-gray-500' && i < 4 ? ' border-2 border-gray-500' : 'md:block hidden border-2 border-gray-500' "
+  >
+    {{ i }}
+  </button>
+  <p class="text-gray-600">...</p>
+  <button
+    class="font-semibold border-2 bg-white text-gray-500 border-gray-500 px-2"
+  >
+    24
+  </button>
+  <button class="bg-white border-2 border-gray-500 text-gray-500 px-2">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+  <button class="bg-white border-2 border-gray-500 text-gray-500 px-2">
+    <i class="fas fa-chevron-right"></i>
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
